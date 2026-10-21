@@ -1,17 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome — zc_assistant_0</title>
+  <title>Zion Amsalem — Developer</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main>
-    <h1>Welcome to zc_assistant_0</h1>
-    <p id="subtitle">ZeroClaw personal assistant — ready to help.</p>
-    <button id="greetBtn">Say hello</button>
+  <header class="header">
+    <div class="container header-inner">
+      <h1 class="site-name">Zion Amsalem</h1>
+      <p class="subtitle">Developer</p>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <span class="toggle-icon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <div class="photo-placeholder">
+          <img src="" alt="Zion Amsalem" class="photo">
+        </div>
+        <div class="hero-text">
+          <h2>Hi, I'm Zion</h2>
+          <p class="bio">Short bio placeholder — tell your story here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <h2>About Me</h2>
+      <p>Placeholder text — this is the About Me section. Add your background, interests, and journey here.</p>
+    </section>
+
+    <section id="resume" class="resume">
+      <h2>Live Resume</h2>
+      <div class="experience">
+        <h3>Experience</h3>
+        <div class="experience-entry">
+          <h4>Placeholder Role</h4>
+          <p class="company">Placeholder Company</p>
+          <p class="date">Placeholder dates</p>
+          <p>Placeholder description — what you did and achieved.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <h2>Projects</h2>
+      <div class="project-list">
+        <!-- Spot reserved for user projects — add entries here later -->
+      </div>
+    </section>
+
+    <section id="skills" class="skills">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>Placeholder skill</li>
+        <li>Placeholder skill</li>
+        <li>Placeholder skill</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <p class="contact-email">placeholder@example.com</p>
+      <div class="contact-links">
+        <a href="#" class="contact-link">Placeholder Link</a>
+        <a href="#" class="contact-link">Placeholder Link</a>
+      </div>
+    </section>
   </main>
-  <script src="app.js"></script>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Zion Amsalem. Built with vanilla HTML/CSS/JS.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

@@ -7,18 +7,39 @@ on:
     branches: ['main']
 
 jobs:
-  test:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+      - name: Validate HTML structure
+        run: |
+          if [ ! -f index.html ]; then echo "index.html missing" && exit 1; fi
+          if [ ! -f style.css ]; then echo "style.css missing" && exit 1; fi
+          if [ ! -f script.js ]; then echo "script.js missing" && exit 1; fi
+          echo "All required files present ✓"
 
-      - name: Install dependencies
-        run: npm install
+      - name: Validate index.html has required sections
+        run: |
+          grep -q 'Zion Amsalem' index.html || { echo "Missing site name" && exit 1; }
+          grep -q 'Developer' index.html || { echo "Missing subtitle" && exit 1; }
+          grep -q 'id="themeToggle"' index.html || { echo "Missing theme toggle" && exit 1; }
+          grep -q 'id="hero"' index.html || { echo "Missing hero section" && exit 1; }
+          grep -q 'id="about"' index.html || { echo "Missing about section" && exit 1; }
+          grep -q 'id="resume"' index.html || { echo "Missing resume section" && exit 1; }
+          grep -q 'id="projects"' index.html || { echo "Missing projects section" && exit 1; }
+          grep -q 'id="skills"' index.html || { echo "Missing skills section" && exit 1; }
+          grep -q 'id="contact"' index.html || { echo "Missing contact section" && exit 1; }
+          echo "All required sections present ✓"
 
-      - name: Run tests
-        run: npm test
+      - name: Validate CSS custom properties for themes
+        run: |
+          grep -q ':root' style.css || { echo "Missing :root CSS vars" && exit 1; }
+          grep -q 'data-theme="dark"' style.css || { echo "Missing dark theme" && exit 1; }
+          echo "CSS theme variables present ✓"
+
+      - name: Validate JS theme toggle + localStorage
+        run: |
+          grep -q 'localStorage' script.js || { echo "Missing localStorage persistence" && exit 1; }
+          grep -q 'data-theme' script.js || { echo "Missing data-theme toggle" && exit 1; }
+          echo "JS theme toggle present ✓"

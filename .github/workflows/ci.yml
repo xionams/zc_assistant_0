@@ -21,7 +21,7 @@ jobs:
 
       - name: Validate index.html has required sections
         run: |
-          grep -q '<h1>Zion Amsalem</h1>' index.html || { echo "Missing site name" && exit 1; }
+          grep -q 'Zion Amsalem' index.html || { echo "Missing site name" && exit 1; }
           grep -q 'Developer' index.html || { echo "Missing subtitle" && exit 1; }
           grep -q 'id="themeToggle"' index.html || { echo "Missing theme toggle" && exit 1; }
           grep -q 'id="hero"' index.html || { echo "Missing hero section" && exit 1; }

@@ -1,0 +1,9 @@
+{
+  "name": "welcome-page",
+  "version": "1.0.0",
+  "description": "Minimal welcome page for zc_assistant_0",
+  "private": true,
+  "scripts": {
+    "test": "node test/welcome.test.js"
+  }
+}
